@@ -17,6 +17,7 @@ h2 a:hover, h2 a:active {
 .page-header {
     background-color: white;
     padding: 1.75em;
+    border-radius: 10px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -30,12 +31,25 @@ h2 a:hover, h2 a:active {
   background-color: #6C648B;
   padding: 1em;
 }
+
 .date {
     color: #B6A19E;
 }
 
+form {
+  color: black;
+}
+
 .save {
     float: right;
+}
+
+.form-block {
+  background-color: #6C648B;
+  border: 5px solid black;
+  margin: 2em;
+  padding: 3em;
+  border-radius: 10px;
 }
 
 .post-form textarea, .post-form input {
@@ -43,8 +57,8 @@ h2 a:hover, h2 a:active {
 }
 
 .top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
+    color: #6BBAA7;
     float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-size: 2em;
+    margin-right: 1%;
 }
