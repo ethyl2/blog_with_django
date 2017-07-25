@@ -52,6 +52,10 @@ form {
   border-radius: 10px;
 }
 
+td {
+  color: black;
+}
+
 .post-form textarea, .post-form input {
     width: 100%;
 }
@@ -60,5 +64,5 @@ form {
     color: #6BBAA7;
     float: right;
     font-size: 2em;
-    margin-right: 1%;
+    margin-right: 0.4em;
 }

@@ -3,11 +3,14 @@
 {% block content %}
     <div class="post">
       <div class="row">
-        <div class="col-md-11">
+        <div class="col-md-10">
           {% if post.published_date %}
             <div class="date">
                 {{ post.published_date }}
             </div>
+          {% else %}
+            <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish
+            </a>
           {% endif %}
         </div>
         {% if user.is_authenticated %}
@@ -16,6 +19,13 @@
               <span class="glyphicon glyphicon-pencil"></span>
             </a>
           </div>
+          <div class="col-md-1 float-md-right">
+            <a class="btn btn-default" href="{% url 'post_remove' pk=post.pk %}">
+              <span class="glyphicon glyphicon-remove"></span>
+            </a>
+          </div>
+        {% else %}
+          <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
         {% endif %}
       </div>
 
