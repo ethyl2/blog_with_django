@@ -17,6 +17,7 @@
             <div class="col-md-10">
               <h1><a href="{% url "post_list" %}">Heather's Development Tools Blog</a></h1>
             </div>
+
           {% if user.is_authenticated %}
             <div class="col-md-2">
               <a href="{% url 'post_new' %}" class="top-menu">
@@ -27,25 +28,28 @@
                 <span class="glyphicon glyphicon-edit">
                 </span>
               </a>
-              <a href="{% url 'login' %}" class="top-menu">
+              <a href="{% url 'logout' %}" class="top-menu">
                 <span class="glyphicon glyphicon-log-out">
                 </span>
               </a>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
-              <h2>Welcome, {{ user.username }}!</h2>
-            </div>
-          </div>
 
           {% else %}
-          <div class="col-md-2">
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-          </div>
+            <div class="col-md-2">
+              <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+            </div>
 
           {% endif %}
+          </div>
+
+          {% if user.is_authenticated %}
+            <div class="row">
+              <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>Welcome, {{ user.username }}!</h2>
+              </div>
+            </div>
+          {% endif %}
+
         </div>
 
         <div class="content">
@@ -53,6 +57,16 @@
             <div class="col-md-12">
               {% block content %}
               {% endblock %}
+            </div>
+          </div>
+        </div>
+
+        <div class="footer">
+          <div class="row text-center">
+            <div class="col-md-12">
+              <p>Lindon, UT 84042 | <a href="https://github.com/ethyl2" target="_blank">
+                https://github.com/ethyl2</a> | <a href="https://www.linkedin.com/in/heather-nuffer/"
+                target="_blank">linkedin.com/in/heather-nuffer</a></p>
             </div>
           </div>
         </div>

@@ -14,10 +14,15 @@ h2 a:hover, h2 a:active {
   text-decoration: none;
 }
 
-.page-header {
+a {
+  color: #63a9b8;
+}
+
+.page-header, .footer {
     background-color: white;
     padding: 1.75em;
     border-radius: 10px;
+    color: #6C648B;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -33,7 +38,14 @@ h2 a:hover, h2 a:active {
 }
 
 .date {
-    color: #B6A19E;
+  color: #e9e2e1;
+}
+
+.comment {
+  border: 2px solid #7f706e;
+  border-radius: 5px;
+  padding: 0.3em;
+  margin: 0.3em;
 }
 
 form {

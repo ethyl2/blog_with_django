@@ -38,4 +38,61 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <hr>
+          <a class="btn btn-default" href="{% url 'add_comment_to_post' pk=post.pk %}">
+            Add comment</a>
+      </div>
+    </div>
+
+    <div class="row">
+      {% for comment in post.comments.all %}
+        {% if user.is_authenticated or comment.approved_comment %}
+          <div class="col-md-6">
+            <div class="comment">
+
+              <div class="date">
+                <div class="row">
+                  <div class="col-md-8">
+                    <p>{{ comment.created_date }}</p>
+                  </div>
+                  {% if not comment.approved_comment %}
+                    <div class="col-md-1">
+                      <p><a class="btn btn-default" href="{% url 'comment_remove' pk=comment.pk %}">
+                        <span class="glyphicon glyphicon-remove"></span>
+                      </a></p>
+                    </div>
+                    <div class="col-md-1 float-md-right">
+                      <p><a class="btn btn-default" href="{% url 'comment_approve' pk=comment.pk %}">
+                        <span class="glyphicon glyphicon-ok"></span>
+                      </a></p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p><strong>{{ comment.author }}:</strong></p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <p>{{ comment.text|linebreaks }}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endif %}
+      {% empty %}
+        <div class="col-md-6">
+          <p>No comments here yet. </p>
+        </div>
+      {% endfor %}
+    </div>
+
 {% endblock %}
